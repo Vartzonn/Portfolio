@@ -1,0 +1,152 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-color: #bada55;
+  --second-color: #ff8427;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #191d35;
+  color: #f1f1f1;
+}
+
+/* Partie scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(126, 126, 126);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(85, 85, 85);
+}
+
+/* Partie Présentation */
+.bio-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.bio-left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  border: 2px solid var(--main-color);
+  border-radius: 20%;
+}
+.bio-title {
+  font-size: 60px;
+}
+.bio-subtitle {
+  margin-top: 10px;
+  color: var(--main-color);
+}
+/* Partie Compétences */
+.bio-skills {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.competences-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.competences-container > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.competences-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  /* border: 1px solid var(--second-color); */
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 20px;
+}
+.competences-item > img {
+  width: 47px;
+}
+/* Partie photo */
+.bio-image {
+  width: 450px;
+  height: 450px;
+  border-radius: 78% 22% 57% 43% / 30% 52% 48% 70%;
+  background-color: #f1f1f1;
+  animation: morph 10s ease-in-out infinite alternate;
+  user-select: none;
+}
+@keyframes morph {
+  0% {
+    border-radius: 55% 45% 57% 43% / 30% 52% 48% 70%;
+  }
+  25% {
+    border-radius: 63% 37% 52% 48% / 42% 45% 55% 58%;
+  }
+  50% {
+    border-radius: 27% 73% 29% 71% / 56% 52% 48% 44%;
+  }
+  75% {
+    border-radius: 44% 56% 62% 38% / 42% 60% 40% 58%;
+  }
+  100% {
+    border-radius: 24% 76% 20% 80% / 67% 43% 57% 33%;
+  }
+}
+
+/* Partie Projets */
+.projects-container {
+  width: 100%;
+  height: 120vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.projects-title {
+  margin-top: 5%;
+}
+
+/* Partie Contact */
+.other-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Partie Contact */
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Partie Footer */
