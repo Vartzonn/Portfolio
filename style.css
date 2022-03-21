@@ -8,7 +8,6 @@
 
 :root {
   --main-color: #BADA55;
-  --second-color: #DB504A;
 }
 
 body {
@@ -67,10 +66,11 @@ body {
   align-items: center;
   margin-top: 50px;
 }
-.competences-title {
+.bio-skills .competences-title {
   font-size: 30px;
 }
 .underlined-title {
+  font-size: 40px;
   background-image: linear-gradient(transparent calc(75% - 3px), #4c5bac 5px);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -108,7 +108,7 @@ body {
   width: 450px;
   height: 450px;
   border-radius: 78% 22% 57% 43% / 30% 52% 48% 70%;
-  background-color: #f1f1f1;
+  background-color: #F1F1F1;
   animation: morph 10s ease-in-out infinite alternate;
   user-select: none;
 }
@@ -133,7 +133,7 @@ body {
 /* Partie Projets */
 .projects {
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   display: flex;
   flex-direction: column;
@@ -149,7 +149,6 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   place-items: center;
 }
 .projects-item {
@@ -166,42 +165,104 @@ body {
   background-repeat: no-repeat;
 }
 .project-todo {
-  background-image: url('./img/Projets/PostIt.png');
+  background-image: url('./img/projets/PostIt.png');
 }
 .project-gite {
-  background-image: url('./img/Projets/Gite.png');
+  background-image: url('./img/projets/Gite.png');
   background-position: center;
 }
 .project-popUp {
-  background-image: url('./img/Projets/PopUp.png');
+  background-image: url('./img/projets/PopUp.png');
   background-size: unset;
   background-repeat: no-repeat;
   background-position: center;
 }
 .project-arbitrageCrypto {
-  background-image: url('./img/Projets/ArbitrageCrypto.png');
+  background-image: url('./img/projets/ArbitrageCrypto.png');
   background-position: center;
 }
 .project-monitoring {
-  background-image: url('./img/Projets/Monitoring.png');
+  background-image: url('./img/projets/Monitoring.png');
 }
 .project-poker {
-  background-image: url('./img/Projets/Poker.png');
+  background-image: url('./img/projets/Poker.png');
 }
 
 /* Partie Contact */
-.other-container {
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* Partie Contact */
-.contact-container form {
+.contact {
+  height: 52vh;
+  margin-bottom: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
+.contact-title {
+  margin-top: 2%;
+}
+.contact-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+.contact-form {
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 80% 20%;
+  gap: 30px;
+  font-size: 25px;
+  padding: 30px;
+}
+.form-group > input, .form-textarea, .form-submit {
+  background-color: transparent;
+  border: 2px solid var(--main-color);
+  color: #e4e4e4;
+  font-size: 20px;
+  padding: 11px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-group > input {
+  height: 40%;
+}
+.form-textarea {
+  width: 120%;
+}
+.form-submit {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+.form-submit:hover, .socialNetwork-link:hover {
+  background-color: var(--main-color);
+  color: black;
+}
 
-/* Partie Footer */
+.contact-socialNetwork {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: auto;
+  width: 20%;
+  height: 100%;
+  padding: 30px;
+}
+.socialNetwork-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+  color: #e4e4e4;
+  text-decoration: none;
+  font-size: 20px;
+}
