@@ -76,7 +76,7 @@
       <h2 class="contact-title underlined-title">Contact</h2>
 
       <div class="contact-container">
-        <form class="contact-form">
+        <form class="contact-form" id="contact-form">
           <div class="form-group">
             <input type="text" name="name" id="name" placeholder="Nom/Prénom" />
 
@@ -105,15 +105,37 @@
           >
             Voir mon profil GitHub
           </a>
-          <a
-            href="./CV.pdf"
-            target="_blank"
-            class="socialNetwork-link"
-          >
+          <a href="./CV.pdf" target="_blank" class="socialNetwork-link">
             Voir mon CV
           </a>
         </div>
       </div>
     </div>
+
+    <!-- Script pour EmailJS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (() => {
+        emailjs.init("user_bQaBzi5ulmDVNjw3T4EsZ");
+      })();
+      const templateParams = {
+        name: "James",
+        notes: "Check this out!",
+      };
+
+      if (1 === 0) {
+        emailjs.sendForm("gmail", "portfolio", "#contact-form").then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
+      }
+    </script>
   </body>
 </html>
