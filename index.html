@@ -133,6 +133,7 @@
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
+        // On crée un message qui indiquera si le mail a été envoyé ou non
         const message = document.createElement("span");
         message.classList.add("form-message");
         const formSubmitContainer = document.querySelector(
@@ -157,16 +158,20 @@
             (result) => {
               console.log(result.text);
 
+              // On affiche un message de succès et on vide le formulaire
               message.classList.add("form-message-success");
               message.innerHTML = "Votre message a bien été envoyé !";
               formSubmitContainer.appendChild(message);
               removeMessage();
+              event.target.reset();
             },
             (error) => {
               console.log(error.text);
 
+              // On affiche un message d'erreur
               message.classList.add("form-message-error");
-              message.innerHTML = "Une erreur est survenue, Veuillez réeessayer";
+              message.innerHTML =
+                "Une erreur est survenue, Veuillez réeessayer";
               formSubmitContainer.appendChild(message);
               removeMessage();
             }
