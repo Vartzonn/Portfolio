@@ -80,7 +80,13 @@
           <div class="form-group">
             <input type="text" name="name" id="name" placeholder="Nom/Prénom" />
 
-            <input type="email" name="email" id="email" placeholder="Email" />
+            <input
+              required
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+            />
           </div>
 
           <textarea
@@ -90,9 +96,10 @@
             cols="50"
             rows="5"
             placeholder="Votre message..."
+            required
           ></textarea>
 
-          <div>
+          <div class="form-submit-container">
             <button class="form-submit" type="submit">Envoyer</button>
           </div>
         </form>
@@ -105,7 +112,7 @@
           >
             Voir mon profil GitHub
           </a>
-          <a href="./CV.pdf" target="_blank" class="socialNetwork-link">
+          <a href="./img/CV.pdf" target="_blank" class="socialNetwork-link">
             Voir mon CV
           </a>
         </div>
@@ -121,21 +128,50 @@
       (() => {
         emailjs.init("user_bQaBzi5ulmDVNjw3T4EsZ");
       })();
-      const templateParams = {
-        name: "James",
-        notes: "Check this out!",
-      };
 
-      if (1 === 0) {
-        emailjs.sendForm("gmail", "portfolio", "#contact-form").then(
-          function (response) {
-            console.log("SUCCESS!", response.status, response.text);
-          },
-          function (error) {
-            console.log("FAILED...", error);
-          }
+      const form = document.querySelector("#contact-form");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const message = document.createElement("span");
+        message.classList.add("form-message");
+        const formSubmitContainer = document.querySelector(
+          ".form-submit-container"
         );
-      }
+        const formSubmit = document.querySelector(".form-submit");
+
+        function removeMessage() {
+          setTimeout(() => {
+            formSubmitContainer.removeChild(message);
+          }, 5000);
+        }
+
+        emailjs
+          .sendForm(
+            "gmail",
+            "portfolio",
+            event.target,
+            "user_bQaBzi5ulmDVNjw3T4EsZ"
+          )
+          .then(
+            (result) => {
+              console.log(result.text);
+
+              message.classList.add("form-message-success");
+              message.innerHTML = "Votre message a bien été envoyé !";
+              formSubmitContainer.appendChild(message);
+              removeMessage();
+            },
+            (error) => {
+              console.log(error.text);
+
+              message.classList.add("form-message-error");
+              message.innerHTML = "Une erreur est survenue, Veuillez réeessayer";
+              formSubmitContainer.appendChild(message);
+              removeMessage();
+            }
+          );
+      });
     </script>
   </body>
 </html>
