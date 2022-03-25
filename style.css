@@ -44,10 +44,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px;
+  padding: 7%;
   border: 2px solid var(--main-color);
   background-color: #222f7c60;
   border-radius: 20%;
+  text-align: center;
 }
 .bio-title {
   font-size: 60px;
@@ -151,6 +152,7 @@ body {
   place-items: center;
 }
 .projects-item {
+  position: relative;
   width: 80%;
   height: 80%;
   background-color: transparent;
@@ -163,28 +165,64 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.projects-item::after {
+  content: "ReactJS";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.projects-item:hover.projects-item::after {
+  opacity: 1;
+}
 .project-todo {
   background-image: url("./img/projets/PostIt.png");
+}
+.project-todo::after {
+  content: "JavaScript";
 }
 .project-gite {
   background-image: url("./img/projets/Gite.png");
   background-position: center;
 }
 .project-popUp {
+  /* Plus petite image, on réduit la taille de la box */
+  width: 298px;
+  height: 251px;
   background-image: url("./img/projets/PopUp.png");
   background-size: unset;
   background-repeat: no-repeat;
   background-position: center;
 }
+.project-popUp::after {
+  content: "JavaScript";
+}
 .project-arbitrageCrypto {
   background-image: url("./img/projets/ArbitrageCrypto.png");
   background-position: center;
 }
+.project-arbitrageCrypto::after {
+  content: "PHP et Javascript";
+}
 .project-monitoring {
   background-image: url("./img/projets/Monitoring.png");
 }
+.project-monitoring::after {
+  content: "PHP et Javascript";
+}
 .project-poker {
   background-image: url("./img/projets/Poker.png");
+}
+.project-poker::after {
+  content: "JavaScript";
 }
 
 /* Partie Contact */
@@ -205,6 +243,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 100px;
+  /* FIXME: */
+  display: none;
 }
 .contact-form {
   width: 60%;
@@ -259,7 +299,7 @@ body {
   color: var(--main-color);
 }
 .form-message-error {
-  color: #FF8484;
+  color: #ff8484;
 }
 
 .contact-socialNetwork {
@@ -283,4 +323,101 @@ body {
   color: #e4e4e4;
   text-decoration: none;
   font-size: 20px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1200px) {
+  .bio-image {
+    width: 350px;
+    height: 350px;
+  }
+  .bio-title {
+    font-size: 50px;
+  }
+  .bio-subtitle {
+    font-size: 23px;
+  }
+  .bio-skills .competences-title {
+    font-size: 25px;
+  }
+  .competences-item {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .bio-image {
+    display: none;
+  }
+  .bio-left-side {
+    padding: 13%;
+  }
+  .bio-title {
+    font-size: 60px;
+  }
+  .bio-subtitle {
+    font-size: 26px;
+  }
+  .bio-skills .competences-title {
+    font-size: 28px;
+  }
+  .competences-item {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .bio-left-side {
+    padding: 11%;
+  }
+  .bio-title {
+    font-size: 48px;
+  }
+  .bio-subtitle {
+    font-size: 23px;
+  }
+  .bio-skills .competences-title {
+    font-size: 25px;
+  }
+  .competences-item {
+    font-size: 20px;
+  }
+  .competences-item > img {
+    width: 45px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .bio-left-side {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: 5px solid var(--main-color);
+    border-bottom: none;
+    padding: 3%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .competences-container {
+    flex-direction: column;
+    gap: 0px;
+  }
+  .bio-title {
+    font-size: 40px;
+  }
+  .bio-subtitle {
+    font-size: 23px;
+  }
+  .bio-skills .competences-title {
+    font-size: 23px;
+  }
+  .competences-item {
+    height: 50px;
+    font-size: 20px;
+    padding: 0;
+  }
+  .competences-item > img {
+    width: 35px;
+  }
 }
