@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "maven_proregular";
+  src: url("font/mavenpro-variablefont_wght-webfont.woff2") format("woff2"),
+    url("font/mavenpro-variablefont_wght-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 ::before,
 ::after {
@@ -14,6 +22,7 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #191d35;
   color: #f1f1f1;
+  font-family: "maven_proregular", sans-serif;
 }
 
 /* Partie scrollbar */
@@ -227,8 +236,7 @@ body {
 
 /* Partie Contact */
 .contact {
-  height: 52vh;
-  margin-bottom: 10vh;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -243,8 +251,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 100px;
-  /* FIXME: */
-  display: none;
 }
 .contact-form {
   width: 60%;
@@ -263,6 +269,7 @@ body {
   color: #e4e4e4;
   font-size: 20px;
   padding: 11px;
+  font-family: "maven_proregular", sans-serif;
 }
 .form-group {
   display: flex;
@@ -276,10 +283,20 @@ body {
   width: 110%;
   resize: none;
 }
+.form-submit-container {
+  grid-column: 1 / 3;
+  width: 90%;
+  height: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
 .form-submit {
-  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  padding: 15px;
 }
 .form-submit:hover,
 .form-submit:focus,
@@ -288,12 +305,10 @@ body {
   background-color: var(--main-color);
   color: black;
 }
-.form-submit-container {
-  grid-column: 1 / 3;
-}
 .form-message {
   font-size: 20px;
   margin-left: 20px;
+  line-height: 1.3;
 }
 .form-message-success {
   color: var(--main-color);
@@ -304,11 +319,10 @@ body {
 
 .contact-socialNetwork {
   display: grid;
-  grid-template-columns: 1;
-  grid-template-rows: auto;
   width: 20%;
   height: 100%;
   padding: 30px;
+  font-family: cursive;
 }
 .socialNetwork-link {
   display: flex;
@@ -323,6 +337,8 @@ body {
   color: #e4e4e4;
   text-decoration: none;
   font-size: 20px;
+  text-align: center;
+  padding: 5px;
 }
 
 /* RESPONSIVE */
@@ -345,6 +361,29 @@ body {
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .contact-form {
+    width: 90%;
+  }
+  .form-textarea {
+    width: 100%;
+  }
+  .contact-container {
+    padding-bottom: 50px;
+    flex-direction: column;
+  }
+  .contact-socialNetwork {
+    width: 90%;
+    grid-template-rows: 0;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+  }
+  .socialNetwork-link {
+    width: 60%;
+    height: 70px;
+  }
+}
+
 @media screen and (max-width: 980px) {
   .bio-image {
     display: none;
@@ -363,6 +402,27 @@ body {
   }
   .competences-item {
     font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .contact-form {
+    width: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 45% 45% 5%;
+    grid-template-columns: 100%;
+  }
+  .form-group {
+    justify-content: space-around;
+  }
+  .form-textarea {
+    grid-row: 2;
+  }
+  .contact-socialNetwork {
+    place-items: center;
+  }
+  .socialNetwork-link {
+    width: 80%;
   }
 }
 
@@ -398,7 +458,21 @@ body {
   }
 }
 
+@media screen and (max-width: 430px) {
+  .form-message {
+    margin-left: 10px;
+    font-size: 16px;
+  }
+  .contact-socialNetwork {
+    gap: 50px;
+  }
+  .socialNetwork-link {
+    width: 120%;
+  }
+}
+
 @media screen and (max-width: 380px) {
+  /* COMPETENCES */
   .competences-container {
     flex-direction: column;
     gap: 0px;
@@ -419,5 +493,20 @@ body {
   }
   .competences-item > img {
     width: 35px;
+  }
+
+  /* CONTACT */
+  .contact-form {
+    padding: 15px;
+  }
+  .form-submit-container {
+    grid-column: 1 / 1;
+  }
+  .contact-socialNetwork {
+    gap: 70px;
+  }
+  .socialNetwork-link {
+    width: 140%;
+    font-size: 18px;
   }
 }

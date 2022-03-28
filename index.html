@@ -129,23 +129,42 @@
         emailjs.init("user_bQaBzi5ulmDVNjw3T4EsZ");
       })();
 
+      // On crée un message qui indiquera si le mail a été envoyé ou non
+      const message = document.createElement("span");
+      message.classList.add("form-message");
+      const formSubmitContainer = document.querySelector(
+        ".form-submit-container"
+      );
+      const formSubmit = document.querySelector(".form-submit");
+
+      function displayLoader() {
+        message.innerHTML = "Envoi en cours...";
+        formSubmitContainer.appendChild(message);
+        formSubmit.disabled = true;
+      }
+      function displayMessage(isError) {
+        formSubmit.disabled = false;
+        if (!isError) {
+          message.innerHTML = "Votre message a bien été envoyé !";
+          message.classList.add("form-message-success");
+        } else {
+          message.innerHTML = "Une erreur est survenue, veuillez réessayer.";
+          message.classList.add("form-message-error");
+        }
+        formSubmitContainer.appendChild(message);
+        // removeMessage();
+      }
+      function removeMessage() {
+        setTimeout(() => {
+          formSubmitContainer.removeChild(message);
+        }, 5000);
+      }
+
       const form = document.querySelector("#contact-form");
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        // On crée un message qui indiquera si le mail a été envoyé ou non
-        const message = document.createElement("span");
-        message.classList.add("form-message");
-        const formSubmitContainer = document.querySelector(
-          ".form-submit-container"
-        );
-        const formSubmit = document.querySelector(".form-submit");
-
-        function removeMessage() {
-          setTimeout(() => {
-            formSubmitContainer.removeChild(message);
-          }, 5000);
-        }
+        displayLoader();
 
         emailjs
           .sendForm(
@@ -159,20 +178,14 @@
               console.log(result.text);
 
               // On affiche un message de succès et on vide le formulaire
-              message.classList.add("form-message-success");
-              message.innerHTML = "Votre message a bien été envoyé !";
-              formSubmitContainer.appendChild(message);
-              removeMessage();
+              displayMessage(false);
               event.target.reset();
             },
             (error) => {
               console.log(error.text);
 
               // On affiche un message d'erreur
-              message.classList.add("form-message-error");
-              message.innerHTML =
-                "Une erreur est survenue, Veuillez réeessayer";
-              formSubmitContainer.appendChild(message);
+              displayMessage(true);
               removeMessage();
             }
           );
