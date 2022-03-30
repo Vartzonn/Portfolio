@@ -142,7 +142,7 @@ body {
 /* Partie Projets */
 .projects {
   width: 100%;
-  height: 120vh;
+  height: auto;
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   display: flex;
   flex-direction: column;
@@ -159,79 +159,82 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
+  gap: 50px;
+  padding: 40px 0;
 }
 .projects-item {
-  position: relative;
-  width: 80%;
-  height: 80%;
-  background-color: transparent;
+  width: 400px;
+  height: 600px;
+  background: #000;
+  /* background-color: transparent; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 20px;
-  cursor: pointer;
+
+}
+.projects-item-img {
+  width: 100%;
+  height: 45%;
   background-size: cover;
   background-repeat: no-repeat;
-}
-.projects-item::after {
-  content: "ReactJS";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.projects-item:hover.projects-item::after {
-  opacity: 1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .project-todo {
   background-image: url("./img/projets/PostIt.png");
-}
-.project-todo::after {
-  content: "JavaScript";
 }
 .project-gite {
   background-image: url("./img/projets/Gite.png");
   background-position: center;
 }
 .project-popUp {
-  /* Plus petite image, on réduit la taille de la box */
-  width: 298px;
-  height: 251px;
   background-image: url("./img/projets/PopUp.png");
   background-size: unset;
   background-repeat: no-repeat;
   background-position: center;
 }
-.project-popUp::after {
-  content: "JavaScript";
-}
 .project-arbitrageCrypto {
   background-image: url("./img/projets/ArbitrageCrypto.png");
   background-position: center;
 }
-.project-arbitrageCrypto::after {
-  content: "PHP et Javascript";
-}
 .project-monitoring {
   background-image: url("./img/projets/Monitoring.png");
-}
-.project-monitoring::after {
-  content: "PHP et Javascript";
 }
 .project-poker {
   background-image: url("./img/projets/Poker.png");
 }
-.project-poker::after {
-  content: "JavaScript";
+.projects-item-description {
+  width: 100%;
+  height: 55%;
+  background-color: rgba(47, 85, 134, 0.651);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px;
+}
+.projects-item-title {
+  font-size: 30px;
+}
+.projects-item-link {
+  width: 50%;
+  height: 40px;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
 }
 
 /* Partie Contact */
