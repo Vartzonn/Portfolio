@@ -73,7 +73,7 @@ body {
   text-align: center;
 }
 .bio-title {
-  font-size: 60px;
+  font-size: 53px;
 }
 .bio-subtitle {
   margin-top: 10px;
@@ -227,6 +227,7 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 20px;
+  overflow: auto;
 }
 .projects-item-title {
   font-size: 30px;
