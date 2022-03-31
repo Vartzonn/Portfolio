@@ -436,6 +436,9 @@ body {
   .projects-container {
     grid-template-columns: 100%;
   }
+  .form-submit {
+    padding: 10px;
+  }
 }
 
 @media screen and (max-width: 740px) {
